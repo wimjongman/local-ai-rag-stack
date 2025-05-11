@@ -13,6 +13,17 @@ git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
 ```
 
+### Pull the LLM model
+If you have not installed Ollama on your host system (for CLI usage), install it first:
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+Then pull the model:
+```bash
+ollama pull llama3
+```
+
 ### Start Ollama + Web UI
 To start the containers:
 ```bash
@@ -28,17 +39,6 @@ If you're running this inside WSL and can't reach http://localhost:3000 from Win
 2. Use the resulting IP (e.g. `http://172.20.5.234:3000`) in your Windows browser.
 
 Note: Ollama (port 11434) is usually directly accessible via `localhost`, but OpenWebUI (port 3000) may require access via the WSL IP address.
-
-### Pull the LLM model
-If you have not installed Ollama on your host system (for CLI usage), install it first:
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
-
-Then pull the model:
-```bash
-ollama pull llama3
-```
 
 ### Activate RAG script
 ```bash
