@@ -1,7 +1,3 @@
-# NOTE: 'version' is deprecated in newer Compose versions
-# Remove this line if you're using Docker Compose v2+
-# version: '3.8'
-
 services:
   ollama:
     image: ollama/ollama
@@ -18,7 +14,7 @@ services:
   openwebui:
     image: ghcr.io/open-webui/open-webui:main
     ports:
-      - "3000:3000"
+      - "3000:8080"
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
     depends_on:
