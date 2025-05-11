@@ -7,14 +7,14 @@ Run a full local AI environment with:
 
 ## Quickstart
 ```bash
-git clone https://github.com/YOURNAME/local-ai-rag-stack.git
+git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
 
 # Start Ollama + Web UI
 docker-compose up -d
 
 # Activate RAG script
-debian$ cd rag
+cd rag
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
