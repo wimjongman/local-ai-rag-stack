@@ -13,12 +13,7 @@ git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
 ```
 
-If you forgot `--recurse-submodules`:
-```bash
-git submodule update --init --recursive
-```
-
-Add the open webui submodule manually:
+Add the open-webui submodule:
 ```bash
 git submodule add https://github.com/open-webui/open-webui.git openwebui
 git submodule update --init --recursive
