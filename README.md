@@ -7,21 +7,56 @@ Run a full local AI environment with:
 
 ## Quickstart
 
-### Clone the repository with submodules
+### Clone the repository
 ```bash
 git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
+```bash
+git submodule update --init --recursive
 ```
 
-Add the open-webui submodule:
-```bash
+bash
 git submodule add https://github.com/open-webui/open-webui.git openwebui
 git submodule update --init --recursive
 ```
 
 ### Start Ollama + Web UI
+If you've changed only the OpenWebUI source code and want to rebuild its image:
+```bash
+docker compose build openwebui
+```
+
+Then (re)start the containers:
 ```bash
 docker-compose up -d
+```
+
+#### 🪟 Access from Windows if using WSL
+If you're running this inside WSL and can't reach http://localhost:3000 from Windows:
+1. Run this in WSL to find your IP:
+   ```bash
+   ip addr show eth0 | grep inet
+   ```
+2. Use the resulting IP (e.g. `http://172.20.5.234:3000`) in your Windows browser.
+
+This allows you to access the OpenWebUI interface from Windows via the WSL network.bash
+docker compose build openwebui
+```
+
+Then (re)start the containers:
+```bash
+docker-compose up -d
+```
+
+### Pull the LLM model
+If you have not installed Ollama on your host system (for CLI usage), install it first:
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+Then pull the model:
+```bash
+ollama pull llama3
 ```
 
 ### Activate RAG script
@@ -29,6 +64,7 @@ docker-compose up -d
 cd rag
 python3 -m venv .venv
 source .venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 python main.py
 ```

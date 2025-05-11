@@ -1,4 +1,6 @@
-version: '3.8'
+# NOTE: 'version' is deprecated in newer Compose versions
+# Remove this line if you're using Docker Compose v2+
+# version: '3.8'
 
 services:
   ollama:
