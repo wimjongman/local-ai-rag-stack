@@ -13,6 +13,6 @@ echo "Removing Ollama Docker volume..."
 # List all volumes: docker volume ls
 # You can replace 'ollama_data' below with the actual volume name if needed
 
-docker volume rm ollama_data || true
+docker volume rm local-ai-rag-stack_ollama_data || true
 
 echo "Done. You can now clone the repository fresh."
