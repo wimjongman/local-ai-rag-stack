@@ -2,7 +2,7 @@
 
 Run a full local AI environment with:
 - Ollama for model runtime (e.g., LLaMA 3)
-- OpenWebUI as a chat interface for Ollama (accessible at http://localhost:3000)
+- OpenWebUI as a chat interface for Ollama (accessible via your WSL IP address (e.g., http://<WSL-IP>:3000))
 - LangChain + Chroma as a basic RAG pipeline for question answering over local documents
 
 ## Quickstart
@@ -11,17 +11,6 @@ Run a full local AI environment with:
 ```bash
 git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
-```
-
-### Pull the LLM model
-If you have not installed Ollama on your host system (for CLI usage), install it first:
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
-
-Then pull the model:
-```bash
-ollama pull llama3
 ```
 
 ### Start Ollama + Web UI
@@ -38,9 +27,18 @@ If you're running this inside WSL and can't reach http://localhost:3000 from Win
    ```
 2. Use the resulting IP (e.g. `http://172.20.5.234:3000`) in your Windows browser.
 
-This allows you to access the OpenWebUI interface from Windows via the WSL network.
+Note: Ollama (port 11434) is usually directly accessible via `localhost`, but OpenWebUI (port 3000) may require access via the WSL IP address.
 
-docker compose build openwebui
+### Pull the LLM model
+If you have not installed Ollama on your host system (for CLI usage), install it first:
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+Then pull the model:
+```bash
+ollama pull llama3
+```
 
 ### Activate RAG script
 ```bash
@@ -53,3 +51,9 @@ python main.py
 ```
 
 Ask questions about your own documents locally 🚀
+
+### Reset everything
+To remove containers, volumes, cache and start over:
+```bash
+./reset.sh
+```
