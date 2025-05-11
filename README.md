@@ -11,22 +11,10 @@ Run a full local AI environment with:
 ```bash
 git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
-```bash
-git submodule update --init --recursive
-```
 
-bash
-git submodule add https://github.com/open-webui/open-webui.git openwebui
-git submodule update --init --recursive
-```
 
 ### Start Ollama + Web UI
-If you've changed only the OpenWebUI source code and want to rebuild its image:
-```bash
-docker compose build openwebui
-```
-
-Then (re)start the containers:
+To start the containers:
 ```bash
 docker-compose up -d
 ```
