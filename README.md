@@ -11,7 +11,7 @@ Run a full local AI environment with:
 ```bash
 git clone https://github.com/wimjongman/local-ai-rag-stack.git
 cd local-ai-rag-stack
-
+```
 
 ### Start Ollama + Web UI
 To start the containers:
@@ -29,7 +29,6 @@ If you're running this inside WSL and can't reach http://localhost:3000 from Win
 
 This allows you to access the OpenWebUI interface from Windows via the WSL network.bash
 docker compose build openwebui
-```
 
 Then (re)start the containers:
 ```bash
